@@ -1,0 +1,8 @@
+per_page: 6
+active: 1
+mobile_id: 1
+tablet_id: 2
+laptop_id: 3
+language_image: "https://res.cloudinary.com/tdh/image/upload/v1595343877/images/language_uyra3n.png"
+min: 1000000
+max: 100000000

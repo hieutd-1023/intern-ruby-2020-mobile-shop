@@ -1,2 +1,32 @@
 vi:
   hello: "Xin chào"
+  layouts:
+    _header:
+      vietnamese: Tiếng Việt
+      english: Tiếng Anh
+      login: Đăng nhập
+      home: Trang chủ
+      shop: Tất cả sản phẩm
+      contact: Liên hệ
+      categories: Danh mục
+      key_word: Nhập tên điện thoại, máy tính bảng ...
+      search: Tìm kiếm
+      shop_now: Đăng ký ngay
+  static_pages:
+    home:
+      hot_products: Sản phẩm nổi bật
+      all_products: Tất cả
+      cheapest_mobile: Điện thoại giá rẻ
+      cheapest_tablet: Máy tính bảng giá rẻ
+      cheapest_laptop: Laptop giá rẻ
+  shop:
+    index:
+      all_products: Tất cả sản phẩm
+      sort_by: Sắp xếp
+      asc: Giá tăng dần
+      desc: Giá giảm dần
+      products: sản phẩm
+      brand: Thương hiệu
+      all: Tất cả
+      price: Mức giá
+      apply: Áp dụng

@@ -1,2 +1,32 @@
 en:
   hello: "Hello world"
+  layouts:
+    _header:
+      vietnamese: Vietnamese
+      english: English
+      login: Login
+      home: Home
+      shop: Shop
+      contact: Contact
+      categories: Categories
+      key_word: Enter mobile or tablet, ...
+      search: Search
+      shop_now: Shop now
+  static_pages:
+    home:
+      hot_products: Featured Products
+      all_products: All
+      cheapest_mobile: Cheapest mobile
+      cheapest_tablet: Cheapest table
+      cheapest_laptop: Cheapest laptop
+  shop:
+    index:
+      all_products: All products
+      sort_by: Sort by
+      asc: increase of price
+      desc: descrease of price
+      products: products
+      brand: Brand
+      all: All
+      price: Price
+      apply: Apply
