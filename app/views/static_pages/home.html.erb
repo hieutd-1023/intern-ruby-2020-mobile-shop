@@ -1,33 +1,52 @@
+<% provide :categories, @categories %>
+<!-- Hero Section Begin -->
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="hero__categories">
+          <div class="hero__categories__all">
+            <i class="fa fa-bars"></i>
+            <span><%= t "layouts._header.categories" %></span>
+          </div>
+          <ul>
+            <% @categories.each do |category| %>
+              <li><a href="#"><%= category.name %></a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="hero__search">
+          <div class="hero__search__form">
+            <%= form_tag(products_path, method: "get") do %>
+              <%= text_field_tag "keyword", nil, placeholder: t('layouts._header.key_word') %>
+              <%= button_tag t("layouts._header.search"), :name => nil, :class => 'site-btn' %>
+            <% end %>
+          </div>
+        </div>
+        <div class="hero__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595387131/images/hero/banner_exorfz.jpg">
+          <div class="hero__text">
+            <a href="#" class="primary-btn"><%= t "layouts._header.shop_now" %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Hero Section End -->
 <!-- Categories Section Begin -->
 <section class="categories">
   <div class="container">
     <div class="row">
       <div class="categories__slider owl-carousel">
-        <div class="col-lg-3">
-          <div class="categories__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595386371/images/categories/cat-1_e4orzy.jpg">
-            <h5><a href="#">Fresh Fruit</a></h5>
+        <% @lastest_products.each do |product| %>
+          <div class="col-lg-3">
+            <div class="categories__item set-bg" data-setbg=<%= product.images.first.url %> >
+              <h5><a href="#"><%= product.name %></a></h5>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="categories__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595386371/images/categories/cat-2_g3g6qd.jpg">
-            <h5><a href="#">Dried Fruit</a></h5>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="categories__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595386371/images/categories/cat-3_izitbj.jpg">
-            <h5><a href="#">Vegetables</a></h5>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="categories__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595386371/images/categories/cat-4_zjhxiw.jpg">
-            <h5><a href="#">drink fruits</a></h5>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="categories__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595386371/images/categories/cat-5_zecklh.jpg">
-            <h5><a href="#">drink fruits</a></h5>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -40,163 +59,40 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="section-title">
-          <h2>Featured Product</h2>
+          <h2><%= t "static_pages.home.hot_products" %></h2>
         </div>
         <div class="featured__controls">
           <ul>
-            <li class="active" data-filter="*">All</li>
-            <li data-filter=".oranges">Oranges</li>
-            <li data-filter=".fresh-meat">Fresh Meat</li>
-            <li data-filter=".vegetables">Vegetables</li>
-            <li data-filter=".fastfood">Fastfood</li>
+            <li class="active" data-filter="*"><%= t "static_pages.home.all_products" %></li>
+            <% @categories.each do |category| %>
+              <li data-filter=.<%= category.slug %>><%= category.name %></li>
+            <% end %>
           </ul>
         </div>
       </div>
     </div>
-    <div class="row featured__filter">
-      <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595389356/images/featured/feature-1_ik001t.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595389356/images/featured/feature-2_inynuw.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
+    <div class="row featured__filter" id="featured_mixtup">
+      <% @products_of_categories.each do |product| %>
+        <div class="col-lg-3 col-md-4 col-sm-6 mix <%= product.category.slug %>">
+          <div class="featured__item">
+            <div class="featured__item__pic set-bg" data-setbg=<%= product.images.first.url %>>
+              <ul class="featured__item__pic__hover">
+                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+              </ul>
+            </div>
+            <div class="featured__item__text">
+              <h6><a href="#"><%= product.name %></a></h6>
+              <h5>$<%= product.price %></h5>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595389355/images/featured/feature-3_xs7if2.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595389355/images/featured/feature-4_snkdy6.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595389355/images/featured/feature-5_uhc7hc.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595389355/images/featured/feature-7_hvndth.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595389355/images/featured/feature-7_hvndth.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595389355/images/featured/feature-8_seu5yp.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>
 <!-- Featured Section End -->
-
-<!-- Banner Begin -->
-<div class="banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <div class="banner__pic">
-          <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388653/images/banner/banner-1_zjlvih.jpg") %>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <div class="banner__pic">
-          <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388653/images/banner/banner-2_hdrsuu.jpg") %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Banner End -->
 
 <!-- Latest Product Section Begin -->
 <section class="latest-product spad">
@@ -204,196 +100,73 @@
     <div class="row">
       <div class="col-lg-4 col-md-6">
         <div class="latest-product__text">
-          <h4>Latest Products</h4>
+          <h4><%= t "static_pages.home.cheapest_mobile" %></h4>
           <div class="latest-product__slider owl-carousel">
-            <div class="latest-prdouct__slider__item">
+            <% @products[:mobile].each_with_index do |product, index| %>
+              <% if index % 3 == 0 %>
+                <div class="latest-prdouct__slider__item">
+              <% end %>
               <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388746/images/latest-product/lp-1_js9fi1.jpg") %>
+                <div class="latest-product__item__pic col-sm-6">
+                  <%= image_tag(product.images.first.url) %>
                 </div>
                 <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
+                  <h6><%= product.name %></h6>
+                  <span>$<%= product.price %></span>
                 </div>
               </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-2_wq01lw.jpg") %>
+              <% if index % 3 == 2 || index == @products[:mobile].length - 1 %>
                 </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-3_onymav.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-            </div>
-            <div class="latest-prdouct__slider__item">
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388746/images/latest-product/lp-1_js9fi1.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-2_wq01lw.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-3_onymav.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-            </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-6">
         <div class="latest-product__text">
-          <h4>Top Rated Products</h4>
+          <h4><%= t "static_pages.home.cheapest_tablet" %></h4>
           <div class="latest-product__slider owl-carousel">
-            <div class="latest-prdouct__slider__item">
+            <% @products[:tablet].each_with_index do |product, index| %>
+              <% if index % 3 == 0 %>
+                <div class="latest-prdouct__slider__item">
+              <% end %>
               <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388746/images/latest-product/lp-1_js9fi1.jpg") %>
+                <div class="latest-product__item__pic col-sm-6">
+                  <%= image_tag(product.images.first.url) %>
                 </div>
                 <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
+                  <h6><%= product.name %></h6>
+                  <span>$<%= product.price %></span>
                 </div>
               </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-2_wq01lw.jpg") %>
+              <% if index % 3 == 2 || index == @products[:tablet].length - 1 %>
                 </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-3_onymav.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-            </div>
-            <div class="latest-prdouct__slider__item">
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-3_onymav.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-2_wq01lw.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-3_onymav.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-            </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-6">
         <div class="latest-product__text">
-          <h4>Review Products</h4>
+          <h4><%= t "static_pages.home.cheapest_laptop" %></h4>
           <div class="latest-product__slider owl-carousel">
-            <div class="latest-prdouct__slider__item">
+            <% @products[:laptop].each_with_index do |product, index| %>
+              <% if index % 3 == 0 %>
+                <div class="latest-prdouct__slider__item">
+              <% end %>
               <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388746/images/latest-product/lp-1_js9fi1.jpg") %>
+                <div class="latest-product__item__pic col-sm-6">
+                  <%= image_tag(product.images.first.url) %>
                 </div>
                 <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
+                  <h6><%= product.name %></h6>
+                  <span>$<%= product.price %></span>
                 </div>
               </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-2_wq01lw.jpg") %>
+              <% if index % 3 == 2 || index == @products[:laptop].length - 1 %>
                 </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-3_onymav.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-            </div>
-            <div class="latest-prdouct__slider__item">
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388746/images/latest-product/lp-1_js9fi1.jpg") %>
-                  </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-2_wq01lw.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic">
-                  <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595388745/images/latest-product/lp-3_onymav.jpg") %>
-                </div>
-                <div class="latest-product__item__text">
-                  <h6>Crab Pool Security</h6>
-                  <span>$30.00</span>
-                </div>
-              </a>
-            </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -401,64 +174,3 @@
   </div>
 </section>
 <!-- Latest Product Section End -->
-
-<!-- Blog Section Begin -->
-<section class="from-blog spad">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-title from-blog__title">
-          <h2>From The Blog</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-6">
-        <div class="blog__item">
-          <div class="blog__item__pic">
-            <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595389097/images/blog/blog-1_xsejcq.jpg") %>
-          </div>
-          <div class="blog__item__text">
-            <ul>
-              <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-              <li><i class="fa fa-comment-o"></i> 5</li>
-            </ul>
-            <h5><a href="#">Cooking tips make cooking simple</a></h5>
-            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6">
-        <div class="blog__item">
-          <div class="blog__item__pic">
-            <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595389098/images/blog/blog-2_uqxja7.jpg") %>
-          </div>
-          <div class="blog__item__text">
-            <ul>
-              <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-              <li><i class="fa fa-comment-o"></i> 5</li>
-            </ul>
-            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6">
-        <div class="blog__item">
-          <div class="blog__item__pic">
-            <%= image_tag("https://res.cloudinary.com/tdh/image/upload/v1595389098/images/blog/blog-3_t1kby9.jpg") %>
-          </div>
-          <div class="blog__item__text">
-            <ul>
-              <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-              <li><i class="fa fa-comment-o"></i> 5</li>
-            </ul>
-            <h5><a href="#">Visit the clean farm in the US</a></h5>
-            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Blog Section End -->

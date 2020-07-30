@@ -1,0 +1,16 @@
+<%= render "header" %>
+<%= render "banner" %>
+<section class="product spad">
+  <div class="container">
+    <div class="row">
+      <%= render "search" %>
+      <div class="col-lg-9 col-md-9" id="list-products">
+        <%= render "count" %>
+        <div class="row">
+          <%= render @products %>
+          <%= paginate @products, theme: "twitter-bootstrap-4" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
