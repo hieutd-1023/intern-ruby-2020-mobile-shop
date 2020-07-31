@@ -1,0 +1,12 @@
+$white-color: #fff;
+$gray-color: #bbb;
+$gray-light-color: #e8e8e8;
+$state-danger-text: yellow;
+$red-color: red;
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  gray: $gray-color;
+  gray-light: $gray-light-color;
+}

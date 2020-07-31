@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 html,
 body {
   height: 100%;
@@ -3550,5 +3552,31 @@ ol {
 
   .blog__details__hero__text h2 {
     font-size: 24px;
+  }
+}
+
+/* forms */
+.signup-title {
+  text-align:center;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid $gray-color;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing
+}
+
+#error_explanation {
+  color: $red-color;
+  ul {
+    color: $red-color;
+    margin: 0 0 30px;
+  }
+}
+
+.field_with_errors {
+  .form-control {
+    color: $state-danger-text;
   }
 }
