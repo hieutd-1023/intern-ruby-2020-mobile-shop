@@ -5,6 +5,8 @@ vi:
       vietnamese: Tiếng Việt
       english: Tiếng Anh
       login: Đăng nhập
+      logout: Đăng xuất
+      account: Tài khoản
       home: Trang chủ
       shop: Tất cả sản phẩm
       contact: Liên hệ
@@ -50,3 +52,11 @@ vi:
       email: Email
       password:  Mật khẩu
       password_confirmation: Xác thực mật khẩu
+  sessions:
+    new:
+      email: Địa chỉ email
+      password: Mật khẩu
+      new_user: Tài khoản mới?
+      signup_now: Đăng ký ngay!
+      login: Đăng nhập
+    failed_login: Đăng nhập thất bại

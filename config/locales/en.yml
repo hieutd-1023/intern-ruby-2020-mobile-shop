@@ -5,6 +5,8 @@ en:
       vietnamese: Vietnamese
       english: English
       login: Login
+      logout: Logout
+      account: Account
       home: Home
       shop: Shop
       contact: Contact
@@ -50,4 +52,12 @@ en:
       email: Email
       password: Password
       password_confirmation: Confirm password
+  sessions:
+    new:
+      email: Email
+      password: Password
+      new_user: New User?
+      signup_now: Sign up now!
+      login: Login
+    failed_login: Login failed
 

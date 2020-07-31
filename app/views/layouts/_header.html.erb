@@ -39,9 +39,22 @@
       </ul>
     </div>
     <div class="header__top__right__auth">
-      <%= link_to "#" do %>
-        <i class="fa fa-user"></i>
-        <%= t "layouts._header.login"  %>
+      <% if logged_in? %>
+        <li class="dropdown li-none">
+          <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
+            <%= @current_user.name %>
+            <b class="caret"></b>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li class="divider"></li>
+            <%= button_to t("layouts._header.logout"), logout_path, method: :delete, class: "bg-none border-none" %>
+          </ul>
+        </li>
+      <% else %>
+        <%= link_to login_path do %>
+          <i class="fa fa-user"></i>
+          <%= t "layouts._header.login"  %>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -109,9 +122,22 @@
               </ul>
             </div>
             <div class="header__top__right__auth">
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i>
-                <%= t("layouts._header.login")  %>
+              <% if logged_in? %>
+                <li class="dropdown li-none">
+                  <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
+                    <%= @current_user.name %>
+                    <b class="caret"></b>
+                  <% end %>
+                  <ul class="dropdown-menu">
+                    <li class="divider"></li>
+                    <%= button_to t("layouts._header.logout"), logout_path, method: :delete, class: "bg-none border-none" %>
+                  </ul>
+                </li>
+              <% else %>
+                <%= link_to login_path do %>
+                  <i class="fa fa-user"></i>
+                  <%= t "layouts._header.login"  %>
+                <% end %>
               <% end %>
             </div>
           </div>
