@@ -38,3 +38,15 @@ vi:
       reviews: Bình luận
       related_product: Sản phẩm tương tự
       unknown_product: Không tìm thấy sản phẩm
+  users:
+    create:
+      succeed_signup: Đăng ký thành công
+      failed_signup: Đăng ký thất bại
+    new:
+      sign_up: Đăng ký
+    form:
+      create_account: Tạo mới tài khoản
+      name: Tên
+      email: Email
+      password:  Mật khẩu
+      password_confirmation: Xác thực mật khẩu

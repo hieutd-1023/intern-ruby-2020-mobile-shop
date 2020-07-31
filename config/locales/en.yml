@@ -38,4 +38,16 @@ en:
       reviews: Reviews
       related_product: Related Product
       unknown_product: Unknown product
+  users:
+    create:
+      succeed_signup: Signup successful
+      failed_signup: Signup failed
+    new:
+      sign_up: Sign up
+    form:
+      create_account: Create account
+      name: Name
+      email: Email
+      password: Password
+      password_confirmation: Confirm password
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_043011) do
+ActiveRecord::Schema.define(version: 2020_07_30_162716) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_043011) do
     t.string "name"
     t.integer "category_id"
     t.integer "status"
+    t.string "slug"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -92,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_043011) do
     t.bigint "ward_id"
     t.integer "role"
     t.integer "status"
+    t.string "password_digest"
     t.index ["district_id"], name: "index_users_on_district_id"
     t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["ward_id"], name: "index_users_on_ward_id"
