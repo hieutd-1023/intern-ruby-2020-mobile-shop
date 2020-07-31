@@ -19,7 +19,7 @@ vi:
       cheapest_mobile: Điện thoại giá rẻ
       cheapest_tablet: Máy tính bảng giá rẻ
       cheapest_laptop: Laptop giá rẻ
-  shop:
+  products:
     index:
       all_products: Tất cả sản phẩm
       sort_by: Sắp xếp
@@ -30,3 +30,11 @@ vi:
       all: Tất cả
       price: Mức giá
       apply: Áp dụng
+    show:
+      product_detail: Chi tiết sản phẩm
+      add_to_cart: THÊM VÀO GIỎ HÀNG
+      avaiable: Còn lại
+      description: Mô tả
+      reviews: Bình luận
+      related_product: Sản phẩm tương tự
+      unknown_product: Không tìm thấy sản phẩm

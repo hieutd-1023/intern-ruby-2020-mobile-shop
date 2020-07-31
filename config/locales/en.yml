@@ -19,7 +19,7 @@ en:
       cheapest_mobile: Cheapest mobile
       cheapest_tablet: Cheapest table
       cheapest_laptop: Cheapest laptop
-  shop:
+  products:
     index:
       all_products: All products
       sort_by: Sort by
@@ -30,3 +30,12 @@ en:
       all: All
       price: Price
       apply: Apply
+    show:
+      product_detail: Product detail
+      add_to_cart: ADD TO CART
+      avaiable: Avaiable
+      description: Description
+      reviews: Reviews
+      related_product: Related Product
+      unknown_product: Unknown product
+
