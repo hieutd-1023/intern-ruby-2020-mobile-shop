@@ -60,4 +60,20 @@ en:
       signup_now: Sign up now!
       login: Login
     failed_login: Login failed
+  admins:
+    layouts:
+      navbar:
+        settings: Settings
+        logout: Logout
+      sidenav:
+        products: Products
+        list_products: List products
+        login_as: Logged in as
+      footer:
+        privacy: Privacy Policy
+        terms: Terms & Conditions
+    products:
+      index:
+        list_products: List products
+
 

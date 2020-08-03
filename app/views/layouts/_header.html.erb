@@ -125,7 +125,7 @@
               <% if logged_in? %>
                 <li class="dropdown li-none">
                   <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
-                    <%= @current_user.name %>
+                    <%= current_user.name %>
                     <b class="caret"></b>
                   <% end %>
                   <ul class="dropdown-menu">
