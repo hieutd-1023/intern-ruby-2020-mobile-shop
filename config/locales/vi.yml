@@ -60,3 +60,18 @@ vi:
       signup_now: Đăng ký ngay!
       login: Đăng nhập
     failed_login: Đăng nhập thất bại
+  admins:
+    layouts:
+      navbar:
+        settings: Cài đặt
+        logout: Đăng xuất
+      sidenav:
+        products: Sản phẩm
+        list_products: Danh sách sản phẩm
+        login_as: Đăng nhập với
+      footer:
+        privacy: Chính sách riêng tư
+        terms: Điều khoản và điều kiện
+    products:
+      index:
+        list_products: Danh sách sản phẩm
