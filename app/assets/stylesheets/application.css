@@ -10,6 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require "bootstrap.min"
+ *= require "elegant-icons"
+ *= require "font-awesome.min"
+ *= require "jquery-ui.min"
+ *= require "nice-select"
+ *= require "owl.carousel.min"
+ *= require "slicknav.min"
+ *= require "style"
+ *= require "variables"
  *= require_self
  */
