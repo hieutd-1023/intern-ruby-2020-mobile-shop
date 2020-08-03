@@ -3580,3 +3580,15 @@ input, textarea, select, .uneditable-input {
     color: $state-danger-text;
   }
 }
+
+.bg-none {
+  background: none;
+}
+
+.border-none {
+  border: none;
+}
+
+.li-none {
+  list-style-type: none;
+}
