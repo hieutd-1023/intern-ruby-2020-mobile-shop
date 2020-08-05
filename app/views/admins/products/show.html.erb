@@ -1,0 +1,57 @@
+<main>
+  <div class="container-fluid">
+    <div class="mt-4">
+      <%= link_to t(".back"), admins_products_path, class: "btn btn-success" %>
+      <br>
+      <br>
+      <h1><%= t".product_detail" %></h1>
+      <br>
+    </div>
+    <dl class="row">
+      <dt class="col-sm-3"><%= t ".name" %></dt>
+      <dd class="col-sm-9">
+        <%= @product.name %>
+      </dd>
+      <dt class="col-sm-3"><%= t ".category" %></dt>
+      <dd class="col-sm-9">
+        <%= @product.category_name %>
+      </dd>
+      <dt class="col-sm-3"><%= t ".brand" %></dt>
+      <dd class="col-sm-9">
+        <%= @product.brand_name %>
+      </dd>
+      <dt class="col-sm-3 text-truncate"><%= t ".price" %></dt>
+      <dd class="col-sm-9">
+        <%= @product.price %>
+      </dd>
+      <dt class="col-sm-3"><%= t ".amount" %></dt>
+      <dd class="col-sm-9">
+        <%= @product.amount %>
+      </dd>
+      <dt class="col-sm-3"><%= t ".description" %></dt>
+      <dd class="col-sm-9">
+        <%= @product.description %>
+      </dd>
+      <dt class="col-sm-3"><%= t ".images" %></dt>
+      <dd class="col-sm-9">
+        <div id="gallery" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <% @product.images.each do |image| %>
+                  <div class="col <%= image.status == "unactive" ? "opacity-5" : "" %>" >
+                    <img class="img-fluid" src="<%= image.url %>" />
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </dd>
+      <dt class="col-sm-3"><%= t ".status" %></dt>
+      <dd class="col-sm-9">
+        <%= @product.status %>
+      </dd>
+    </dl>
+  </div>
+</main>

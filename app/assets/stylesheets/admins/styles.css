@@ -10260,3 +10260,15 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+.opacity-5 {
+  opacity: 0.5;
+}
+.bg-none {
+  background: none;
+}
+.border-none {
+  border: none;
+}
+.padding-l-24 {
+  padding-left: 24px;
+}

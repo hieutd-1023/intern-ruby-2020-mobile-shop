@@ -69,6 +69,7 @@ vi:
       sidenav:
         products: Sản phẩm
         list_products: Danh sách sản phẩm
+        create_product: Tạo mới sản phẩm
         login_as: Đăng nhập với
       footer:
         privacy: Chính sách riêng tư
@@ -76,3 +77,70 @@ vi:
     products:
       index:
         list_products: Danh sách sản phẩm
+        counts: "Tổng số: "
+        name: Tên sản phẩm
+        category: Danh mục
+        brand: Thương hiệu
+        price: Giá
+        amount: Số lượng
+        status: Trạng thái
+        action: Thao tác
+      form:
+        product_detail: Chi tiết sản phẩm
+        name: Tên sản phẩm
+        category: Danh mục
+        brand: Thương hiệu
+        price: Giá
+        amount: Số lượng
+        status: Trạng thái
+        description: Mô tả
+        placeholder_name: Nhập tên sản phẩm
+        choose_category: Chọn danh mục
+        choose_brand: Chọn thương hiệu
+        placeholder_price: Nhập giá
+        placeholder_amount: Nhập số lượng
+        placeholder_description: Nhập mô tả
+        images: Hình ảnh
+        add_image: Thêm hình ảnh
+      image_fields:
+          placeholder_image: Nhập đường dẫn ảnh
+          remove_image: Xóa hình ảnh
+      form_search:
+        key_word: Từ khóa
+        placeholder_key_word: Nhập từ khóa
+        category: Danh mục
+        choose_category: Chọn danh mục
+        brand: Thương hiệu
+        choose_brand: Chọn thương hiệu
+        status: Trạng thái
+        choose_status: Chọn trạng thái
+        from_price: Từ giá
+        to_price: Đến giá
+        placeholder_min_price: Nhập giá nhỏ
+        placeholder_max_price: Nhập giá lớn
+        search: Tìm kiếm
+        reset: Làm mới
+        active: Hiển thị
+        unactive: Ẩn
+      show:
+        back: Quay lại
+        product_detail: Chi tiết sản phẩm
+        name: Tên sản phẩm
+        category: Danh mục
+        brand: Thương hiệu
+        price: Giá
+        amount: Số lượng
+        status: Trạng thái
+        description: Mô tả
+        images: Ảnh
+      product_item:
+        action: Thao tác
+        show: Xem
+        edit: Sửa
+        delete: Xóa
+      new:
+        back: Quay lại
+        create_product: Tạo mới sản phẩm
+      edit:
+        back: Quay lại
+        edit_product: Sửa sản phẩm
