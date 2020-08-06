@@ -1,0 +1,20 @@
+<tr>
+  <td><%= product.name %></td>
+  <td><%= product.category_name %></td>
+  <td><%= product.brand_name %></td>
+  <td><%= product.price %></td>
+  <td><%= product.amount %></td>
+  <td><%= product.status %></td>
+  <td>
+    <div class="btn-group dropbottom">
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t ".action" %>
+      </button>
+      <div class="dropdown-menu">
+        <%= link_to t(".show"), admins_product_path(product), class: "dropdown-item" %>
+        <%= link_to t(".edit"), edit_admins_product_path(product), class: "dropdown-item" %>
+        <%= button_to t(".delete"), admins_product_path(product), method: :delete, class: "bg-none border-none padding-l-24" %>
+      </div>
+    </div>
+  </td>
+</tr>

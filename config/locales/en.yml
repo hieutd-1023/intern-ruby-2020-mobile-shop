@@ -69,6 +69,7 @@ en:
       sidenav:
         products: Products
         list_products: List products
+        create_product: Create product
         login_as: Logged in as
       footer:
         privacy: Privacy Policy
@@ -76,3 +77,69 @@ en:
     products:
       index:
         list_products: List products
+        counts: "Counts: "
+        name: Name
+        category: Category
+        brand: Brand
+        price: Price
+        amount: Amount
+        status: Status
+        action: Action
+      form:
+        product_detail: Prouct Details
+        name: Name
+        category: Category
+        brand: Brand
+        price: Price
+        amount: Amount
+        status: Status
+        description: Description
+        placeholder_name: Enter name
+        choose_category: Choose category
+        choose_brand: Choose brand
+        placeholder_price: Enter price
+        placeholder_amount: Enter amount
+        placeholder_description: Enter description
+        images: Images
+        add_image: Add image
+      image_fields:
+        placeholder_image: Enter url of image
+        remove_image: Remove image
+      form_search:
+        key_word: Key word
+        placeholder_key_word: Enter keyword
+        category: Category
+        choose_category: Choose category
+        brand: Brand
+        choose_brand: Choose brand
+        status: Status
+        choose_status: Choose status
+        from_price: From price
+        to_price: To price
+        placeholder_min_price: Enter min price
+        placeholder_max_price: Enter max price
+        search: Search
+        reset: Reset
+        active: Active
+        unactive: Unactive
+      show:
+        back: Back
+        product_detail: Prouct Details
+        name: Name
+        category: Category
+        brand: Brand
+        price: Price
+        amount: Amount
+        status: Status
+        description: Description
+        images: Images
+      product_item:
+        action: Action
+        show: Show
+        edit: Edit
+        delete: Delete
+      new:
+        create_product: Create product
+      edit:
+        back: Back
+        edit_product: Edit product

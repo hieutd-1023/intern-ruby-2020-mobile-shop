@@ -5,6 +5,7 @@ ruby "2.7.1"
 gem "bcrypt", "3.1.11"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap4-kaminari-views"
+gem "cocoon"
 gem "config"
 gem "jbuilder", "~> 2.7"
 gem "kaminari"
