@@ -17,20 +17,10 @@
       <div class="col-lg-6 col-md-6">
         <div class="product__details__text">
           <h3><%= @product.name %></h3>
-          <div class="product__details__price"><%= @product.price %></div>
+          <div class="product__details__price"><%= number_to_currency(@product.price) %></div>
           <p><%= @product.description %></p>
-          <div class="product__details__quantity">
-            <div class="quantity">
-              <div class="pro-qty">
-                <%= text_field_tag "amount", "1" %>
-              </div>
-            </div>
-          </div>
-          <%= link_to "#", class: "primary-btn" do %>
+          <%= link_to "#", class: "primary-btn add-cart", data: { "product-id": @product.id } do %>
             <%= t "products.show.add_to_cart" %>
-          <% end %>
-          <%= link_to "#", class: "heart-icon" do %>
-            <span class="icon_heart_alt"></span>
           <% end %>
           <ul>
             <li><b><%= t "products.show.avaiable" %></b> <span><%= @product.amount %></span></li>

@@ -7,4 +7,6 @@ laptop_id: 3
 language_image: "https://res.cloudinary.com/tdh/image/upload/v1595343877/images/language_uyra3n.png"
 min: 1000000
 max: 100000000
+max_string: 255
 email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+admin: 1

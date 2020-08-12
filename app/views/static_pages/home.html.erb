@@ -11,7 +11,11 @@
           </div>
           <ul>
             <% @categories.each do |category| %>
-              <li><a href="#"><%= category.name %></a></li>
+              <li>
+                <%= link_to products_path(category_id: category.id) do %>
+                  <%= category.name %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </div>
@@ -20,15 +24,12 @@
         <div class="hero__search">
           <div class="hero__search__form">
             <%= form_tag(products_path, method: "get") do %>
-              <%= text_field_tag "keyword", nil, placeholder: t('layouts._header.key_word') %>
-              <%= button_tag t("layouts._header.search"), :name => nil, :class => 'site-btn' %>
+              <%= text_field_tag "keyword", params[:keyword] ? params[:keyword] : "", placeholder: t("layouts._header.key_word") %>
+              <%= button_tag t("layouts._header.search"), :name => nil, :class => "site-btn" %>
             <% end %>
           </div>
         </div>
-        <div class="hero__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1595387131/images/hero/banner_exorfz.jpg">
-          <div class="hero__text">
-            <a href="#" class="primary-btn"><%= t "layouts._header.shop_now" %></a>
-          </div>
+        <div class="hero__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1597109356/images/banner/fb-banner-offline_n4pauf.jpg">
         </div>
       </div>
     </div>
@@ -43,7 +44,11 @@
         <% @lastest_products.each do |product| %>
           <div class="col-lg-3">
             <div class="categories__item set-bg" data-setbg=<%= product.images.first.url %> >
-              <h5><a href="#"><%= product.name %></a></h5>
+              <h5>
+                <%= link_to product do %>
+                  <%= product.name %>
+                <% end %>
+              </h5>
             </div>
           </div>
         <% end %>
@@ -77,14 +82,20 @@
           <div class="featured__item">
             <div class="featured__item__pic set-bg" data-setbg=<%= product.images.first.url %>>
               <ul class="featured__item__pic__hover">
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                <li class="add-cart" data-product-id="<%= product.id %>" >
+                  <%= link_to "#" do %>
+                    <i class="fa fa-shopping-cart" ></i>
+                  <% end %>
+                </li>
               </ul>
             </div>
             <div class="featured__item__text">
-              <h6><a href="#"><%= product.name %></a></h6>
-              <h5>$<%= product.price %></h5>
+              <h6>
+                <%= link_to product do %>
+                  <%= product.name %>
+                <% end %>
+              </h6>
+              <h5><%= number_to_currency(product.price) %></h5>
             </div>
           </div>
         </div>
@@ -106,15 +117,15 @@
               <% if index % 3 == 0 %>
                 <div class="latest-prdouct__slider__item">
               <% end %>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic col-sm-6">
+              <%= link_to product, class: "latest-product__item" do %>
+                <div class="latest-product__item__pic col-sm-4">
                   <%= image_tag(product.images.first.url) %>
                 </div>
                 <div class="latest-product__item__text">
                   <h6><%= product.name %></h6>
-                  <span>$<%= product.price %></span>
+                  <span><%= number_to_currency(product.price) %></span>
                 </div>
-              </a>
+              <% end %>
               <% if index % 3 == 2 || index == @products[:mobile].length - 1 %>
                 </div>
               <% end %>
@@ -130,15 +141,15 @@
               <% if index % 3 == 0 %>
                 <div class="latest-prdouct__slider__item">
               <% end %>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic col-sm-6">
+              <%= link_to product, class: "latest-product__item" do %>
+                <div class="latest-product__item__pic col-sm-4">
                   <%= image_tag(product.images.first.url) %>
                 </div>
                 <div class="latest-product__item__text">
                   <h6><%= product.name %></h6>
-                  <span>$<%= product.price %></span>
+                  <span><%= number_to_currency(product.price) %></span>
                 </div>
-              </a>
+              <% end %>
               <% if index % 3 == 2 || index == @products[:tablet].length - 1 %>
                 </div>
               <% end %>
@@ -154,15 +165,15 @@
               <% if index % 3 == 0 %>
                 <div class="latest-prdouct__slider__item">
               <% end %>
-              <a href="#" class="latest-product__item">
-                <div class="latest-product__item__pic col-sm-6">
+              <%= link_to product, class: "latest-product__item" do %>
+                <div class="latest-product__item__pic col-sm-4">
                   <%= image_tag(product.images.first.url) %>
                 </div>
                 <div class="latest-product__item__text">
                   <h6><%= product.name %></h6>
-                  <span>$<%= product.price %></span>
+                  <span><%= number_to_currency(product.price) %></span>
                 </div>
-              </a>
+              <% end %>
               <% if index % 3 == 2 || index == @products[:laptop].length - 1 %>
                 </div>
               <% end %>

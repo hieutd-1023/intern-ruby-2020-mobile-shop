@@ -1,6 +1,7 @@
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require("jquery-ujs")
 require("mixitup")
 require("packs/bootstrap.min")
 require("packs/jquery-ui.min")

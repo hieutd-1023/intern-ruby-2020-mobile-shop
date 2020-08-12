@@ -2,33 +2,33 @@
   <div class="row">
     <div class="col-3">
       <%= label_tag "key_word", t(".key_word") %>
-      <%= text_field_tag "keyword", nil, class: "form-control", placeholder: t(".placeholder_key_word") %>
+      <%= text_field_tag "keyword", params[:keyword] ? params[:keyword] : nil , class: "form-control", placeholder: t(".placeholder_key_word") %>
     </div>
     <div class="col-3">
       <%= label_tag "category", t(".category") %>
       <div class="form-group">
-        <%= select_tag "category_id", options_from_collection_for_select(@categories, "id", "name"), include_blank: t(".choose_category"), class: "form-control" %>
+        <%= select_tag "category_id", options_from_collection_for_select(@categories, "id", "name", params[:category_id] ? params[:category_id] : nil), include_blank: t(".choose_category"), class: "form-control" %>
       </div>
     </div>
     <div class="col-3">
       <%= label_tag "brand_id", t(".brand") %>
       <div class="form-group">
-        <%= select_tag "brand_id", options_from_collection_for_select(@brands, "id", "name"), include_blank: t(".choose_brand"), class: "form-control" %>
+        <%= select_tag "brand_id", options_from_collection_for_select(@brands, "id", "name", params[:brand_id] ? params[:brand_id] : nil), include_blank: t(".choose_brand"), class: "form-control" %>
       </div>
     </div>
     <div class="col-3">
       <%= label_tag "status", t(".status") %>
       <div class="form-group">
-        <%= select_tag "status", raw("<option value="">" + t(".choose_status") + "</option><option value=" + "1" + ">" + t(".active") + "</option><option value=" + "0" + ">" + t(".unactive") + "</option>"), class: "form-control" %>
+        <%= select_tag "status", options_for_select(option_status_product, params[:status] ? params[:status] : nil), include_blank: t(".choose_status"), class: "form-control" %>
       </div>
     </div>
     <div class="col-3">
       <%= label_tag "from_price", t(".from_price") %>
-      <%= number_field_tag "from_price", nil, type: "number", class: "form-control", placeholder: t(".placeholder_min_price") %>
+      <%= number_field_tag "from_price", params[:from_price] ? params[:from_price] : nil, type: "number", class: "form-control", placeholder: t(".placeholder_min_price") %>
     </div>
     <div class="col-3">
       <%= label_tag "to_price", t(".to_price") %>
-      <%= number_field_tag "to_price", nil, type: "number", class: "form-control", placeholder: t(".placeholder_max_price") %>
+      <%= number_field_tag "to_price", params[:to_price] ? params[:to_price] : nil, type: "number", class: "form-control", placeholder: t(".placeholder_max_price") %>
     </div>
   </div>
   <br>

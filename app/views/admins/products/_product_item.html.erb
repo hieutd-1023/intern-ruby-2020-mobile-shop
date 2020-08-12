@@ -2,9 +2,9 @@
   <td><%= product.name %></td>
   <td><%= product.category_name %></td>
   <td><%= product.brand_name %></td>
-  <td><%= product.price %></td>
+  <td><%= number_to_currency(product.price) %></td>
   <td><%= product.amount %></td>
-  <td><%= product.status %></td>
+  <td><%= t ".#{product.status}" %></td>
   <td>
     <div class="btn-group dropbottom">
       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -2,17 +2,29 @@
   <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
     <div class="sb-sidenav-menu">
       <div class="nav">
-        <%= link_to "#", class: "nav-link collapsed", id: "userDropdown",  "data-role" => "button", data: { toggle: 'collapse', target: "#collapseLayouts" }, aria: { expanded: true, controls: "collapseLayouts" } do %>
+        <%= link_to "#", class: "nav-link collapsed #{active_treeview_menu "products", "active"}", id: "userDropdown", "data-role" => "button", data: {toggle: 'collapse', target: "#collapseProducts"}, aria: {expanded: true, controls: "collapseLayouts"} do %>
           <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-          <%= t".products" %>
+          <%= t ".products" %>
           <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         <% end %>
-        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+        <div class="collapse <%= active_treeview_menu "products", "show" %>" id="collapseProducts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
           <nav class="sb-sidenav-menu-nested nav">
-            <%= link_to t(".list_products"), admins_products_path, class: "nav-link" %>
+            <%= link_to t(".list_products"), admins_products_path, class: "nav-link #{active_treeview_menu "products", "active"}" %>
           </nav>
           <nav class="sb-sidenav-menu-nested nav">
-            <%= link_to t(".create_product"), new_admins_product_path, class: "nav-link" %>
+            <%= link_to t(".create_product"), new_admins_product_path, class: "nav-link #{active_treeview_menu "new", "active"}" %>
+          </nav>
+        </div>
+      </div>
+      <div class="nav">
+        <%= link_to "#", class: "nav-link collapsed #{active_treeview_menu "orders", "active"}", id: "userDropdown", "data-role" => "button", data: {toggle: 'collapse', target: "#collapseOrders"}, aria: {expanded: true, controls: "collapseLayouts"} do %>
+          <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+          <%= t ".orders" %>
+          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        <% end %>
+        <div class="collapse <%= active_treeview_menu "orders", "show" %>" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+          <nav class="sb-sidenav-menu-nested nav">
+            <%= link_to t(".list_orders"), admins_orders_path, class: "nav-link #{active_treeview_menu "orders", "active"}" %>
           </nav>
         </div>
       </div>

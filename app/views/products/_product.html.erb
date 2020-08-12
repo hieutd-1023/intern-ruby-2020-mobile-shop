@@ -2,19 +2,9 @@
   <div class="product__item">
     <div class="product__item__pic set-bg" data-setbg=<%= product.images.first.url %>>
       <ul class="product__item__pic__hover">
-        <li>
+        <li class="add-cart" data-product-id="<%= product.id %>" >
           <%= link_to "#" do %>
-            <i class="fa fa-heart"></i>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-            <i class="fa fa-retweet"></i>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-            <i class="fa fa-shopping-cart"></i>
+            <i class="fa fa-shopping-cart" ></i>
           <% end %>
         </li>
       </ul>
@@ -25,7 +15,7 @@
           <%= product.name %>
         <% end %>
       </h6>
-      <h5><%= product.price %></h5>
+      <h5><%= number_to_currency(product.price) %></h5>
     </div>
   </div>
 </div>

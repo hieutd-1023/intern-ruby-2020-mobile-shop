@@ -1,6 +1,15 @@
 vi:
   hello: "Xin chào"
   brand: "Mobile Shop"
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            brand:
+              required: không được để trống
+            category:
+              required: không được để trống
   layouts:
     _header:
       vietnamese: Tiếng Việt
@@ -14,7 +23,9 @@ vi:
       categories: Danh mục
       key_word: Nhập tên điện thoại, máy tính bảng ...
       search: Tìm kiếm
-      shop_now: Đăng ký ngay
+      application:
+    application:
+      updated_cart: "Giỏ hàng được cập nhật"
   static_pages:
     home:
       hot_products: Sản phẩm nổi bật
@@ -41,6 +52,35 @@ vi:
       reviews: Bình luận
       related_product: Sản phẩm tương tự
       unknown_product: Không tìm thấy sản phẩm
+  carts:
+    index:
+      carts: Giỏ hàng
+      product: Sản phẩm
+      price: Giá
+      quantity: Số lượng
+      total: Tổng tiền
+      cart_total: Tổng tiền giỏ hàng
+      checkout: Tiến hành thanh toán
+      continue_shopping: Quay lại mua sắm
+  orders:
+    new:
+      checkout_detail: Chi tiết đơn hàng
+      checkouts: Đơn hàng
+    form:
+      name: Tên
+      address: Địa chỉ
+      phone: Số điện thoại
+      email: Email
+      your_order: Đơn hàng của tôi
+      products: Sản phẩm
+      total: Tổng
+      check_payment: Tiền mặt
+      place_order: Đặt hàng
+      placeholder_address: Nhập địa chỉ
+      placeholder_phone: Nhập số điện thoại
+    create:
+      order_create_failed: Đơn hàng tạo thất bại
+      order_created_success: Đơn hàng tạo thành công
   users:
     create:
       succeed_signup: Đăng ký thành công
@@ -70,6 +110,8 @@ vi:
         products: Sản phẩm
         list_products: Danh sách sản phẩm
         create_product: Tạo mới sản phẩm
+        orders: Đơn hàng
+        list_orders: Danh sách đơn hàng
         login_as: Đăng nhập với
       footer:
         privacy: Chính sách riêng tư
@@ -138,9 +180,67 @@ vi:
         show: Xem
         edit: Sửa
         delete: Xóa
+        active: Hiển thị
+        unactive: Ẩn
       new:
         back: Quay lại
         create_product: Tạo mới sản phẩm
       edit:
         back: Quay lại
         edit_product: Sửa sản phẩm
+      create:
+        product_created_success: Tạo mới sản phẩm thành công
+        product_create_failed: Tạo mới sản phẩm thấy bại
+      update:
+        product_updated: Cập nhật sản phẩm thành công
+        product_update_fail: Cập nhật sản phẩm thấy bại
+    orders:
+      index:
+        list_orders: Danh sách đơn hàng
+        customer_name: Tên khách hàng
+        quantity: Số lượng
+        amount: Tổng tiền
+        status: Trạng thái
+        action: Thao tác
+        counts: "Tổng: "
+      order_item:
+        pending: Đang chờ
+        handing: Chờ xử lý
+        resolved: Hoàn thành
+        action: Thao tác
+        show_and_edit: Xem và cập nhật
+      update:
+        order_updated: Đơn hàng được cập nhật thành công
+      show:
+        back: Quay lại
+        order_detail: Chi tiết đơn hàng
+        list_products: Danh sách sản phẩm
+        customer_name: Tên khách hàng
+        product_name: Tên sản phẩm
+        address_receiver: Địa chỉ người nhận
+        phone_receiver: SĐT người nhận
+        quantity: Số lượng
+        amount: Tổng tiền
+        status: Trạng thái
+        action: Thao tác
+        pending: Đang chờ
+        handing: Chờ xử lý
+        resolved: Hoàn thành
+        update: Cập nhật
+      edit:
+        back: Quay lại
+        edit_order: Cập nhật đơn hàng
+      form:
+        name_receiver: Tên người nhận
+        address_receiver: Địa chỉ người nhận
+        phone_receiver: SĐT người nhận
+        status: Trạng thái
+        update: Cập nhật
+      form_search:
+        customer_receiver: Người nhận
+        placeholder_customer_receiver: Nhập tên người nhận
+        status: Trạng thái
+        choose_status: Chọn trạng thái
+        pending: Đang chờ
+        handing: Chờ xử lý
+        resolved: Hoàn thành
