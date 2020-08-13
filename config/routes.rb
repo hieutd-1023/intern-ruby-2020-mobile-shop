@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     get "/home", to: "static_pages#home"
     get "/help", to: "static_pages#help"
     resources :products
+    resources :carts
+    resources :orders
     get "/signup", to: "users#new"
     post "/signup", to: "users#create"
     resources :users
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
     namespace :admins do
       root to: "products#index"
       resources :products
+      resources :orders
     end
   end
 end

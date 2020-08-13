@@ -1,14 +1,14 @@
 <div class="col-lg-3 col-md-3">
   <div class="sidebar">
-    <%= form_tag(products_path, method: "get", remote: true) do %>
+    <%= form_tag(products_path, method: :get) do %>
       <div class="sidebar__item">
-        <h4><%= t "shop.index.brand" %></h4>
+        <h4><%= t "products.index.brand" %></h4>
         <ul>
           <%= render partial: "products/brand", collection: @brands %>
         </ul>
       </div>
       <div class="sidebar__item">
-        <h4><%= t "shop.index.price" %></h4>
+        <h4><%= t "products.index.price" %></h4>
         <div class="price-range-wrap">
           <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="<%= Settings.min %>" data-max="<%= Settings.max %>">
             <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <%= button_tag t("shop.index.apply"), name: nil, class: 'site-btn' %>
+      <%= button_tag t "products.index.apply", name: nil, class: "site-btn" %>
     <% end %>
   </div>
 </div>

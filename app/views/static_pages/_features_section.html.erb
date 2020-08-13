@@ -1,0 +1,46 @@
+<!-- Featured Section Begin -->
+<section class="featured spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <h2><%= t "static_pages.home.hot_products" %></h2>
+        </div>
+        <div class="featured__controls">
+          <ul>
+            <li class="active" data-filter="*"><%= t "static_pages.home.all_products" %></li>
+            <% @categories.each do |category| %>
+              <li data-filter=.<%= category.slug %>><%= category.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row featured__filter" id="featured_mixtup">
+      <% @products_of_categories.each do |product| %>
+        <div class="col-lg-3 col-md-4 col-sm-6 mix <%= product.category.slug %>">
+          <div class="featured__item">
+            <div class="featured__item__pic set-bg" data-setbg=<%= product.images.first.url %>>
+              <ul class="featured__item__pic__hover">
+                <li class="add-cart" data-product-id="<%= product.id %>" >
+                  <%= link_to "#" do %>
+                    <i class="fa fa-shopping-cart" ></i>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+            <div class="featured__item__text">
+              <h6>
+                <%= link_to product do %>
+                  <%= product.name %>
+                <% end %>
+              </h6>
+              <h5><%= number_to_currency product.price %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<!-- Featured Section End -->

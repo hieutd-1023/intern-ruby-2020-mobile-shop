@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_162716) do
+ActiveRecord::Schema.define(version: 2020_08_06_142748) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.integer "status"
+  end
+
+  create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "quantity"
+    t.integer "status"
+    t.index ["product_id"], name: "index_carts_on_product_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -61,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_162716) do
     t.string "address_receiver"
     t.string "phone_receiver"
     t.integer "status"
+    t.integer "type"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -102,10 +112,13 @@ ActiveRecord::Schema.define(version: 2020_07_30_162716) do
   create_table "wards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.bigint "district_id", null: false
+    t.bigint "province_id", null: false
     t.integer "status"
     t.index ["district_id"], name: "index_wards_on_district_id"
   end
 
+  add_foreign_key "carts", "products"
+  add_foreign_key "carts", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "districts", "provinces"
