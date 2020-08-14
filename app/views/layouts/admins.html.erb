@@ -13,6 +13,9 @@
     <div id="layoutSidenav">
       <%= render "admins/layouts/sidenav" %>
       <div id="layoutSidenav_content">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
         <%= yield %>
         <%= render "admins/layouts/footer" %>
       </div>

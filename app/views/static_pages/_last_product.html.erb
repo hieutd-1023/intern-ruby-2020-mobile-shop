@@ -1,0 +1,32 @@
+<!-- Latest Product Section Begin -->
+<section class="latest-product spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="latest-product__text">
+          <h4><%= t "static_pages.home.cheapest_mobile" %></h4>
+          <div class="latest-product__slider owl-carousel">
+            <%= render partial: "static_pages/product_category_item", collection: @products[:mobile], as: :product %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="latest-product__text">
+          <h4><%= t "static_pages.home.cheapest_tablet" %></h4>
+          <div class="latest-product__slider owl-carousel">
+            <%= render partial: "static_pages/product_category_item", collection: @products[:tablet], as: :product %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="latest-product__text">
+          <h4><%= t "static_pages.home.cheapest_laptop" %></h4>
+          <div class="latest-product__slider owl-carousel">
+            <%= render partial: "static_pages/product_category_item", collection: @products[:laptop], as: :product %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Latest Product Section End -->

@@ -1,4 +1,5 @@
-<section class="hero hero-normal">
+<!-- Hero Section Begin -->
+<section class="hero">
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
@@ -21,13 +22,16 @@
       <div class="col-lg-9">
         <div class="hero__search">
           <div class="hero__search__form">
-            <%= form_tag products_path, method: :get do %>
+            <%= form_tag(products_path, method: "get") do %>
               <%= text_field_tag :keyword, params[:keyword] ? params[:keyword] : "", placeholder: t("layouts._header.key_word") %>
-              <%= button_tag t("layouts._header.search"), name: nil, class: "site-btn" %>
+              <%= button_tag t("layouts._header.search"), :name => nil, :class => "site-btn" %>
             <% end %>
           </div>
+        </div>
+        <div class="hero__item set-bg" data-setbg="https://res.cloudinary.com/tdh/image/upload/v1597109356/images/banner/fb-banner-offline_n4pauf.jpg">
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- Hero Section End -->

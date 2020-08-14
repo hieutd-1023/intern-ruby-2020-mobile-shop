@@ -1,0 +1,15 @@
+<% if (product_counter % Settings.per_page_slider).eql?(0) %>
+  <div class="latest-prdouct__slider__item">
+<% end %>
+<%= link_to product, class: "latest-product__item" do %>
+  <div class="latest-product__item__pic col-sm-4">
+    <%= image_tag product.images.first.url %>
+  </div>
+  <div class="latest-product__item__text">
+    <h6><%= product.name %></h6>
+    <span><%= number_to_currency product.price %></span>
+  </div>
+<% end %>
+<% if (product_counter % Settings.per_page_slider).eql?(2) || product_counter.eql?(@products[:mobile].length - 1) %>
+  </div>
+<% end %>

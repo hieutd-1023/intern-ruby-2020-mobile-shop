@@ -1,0 +1,21 @@
+<!-- Categories Section Begin -->
+<section class="categories">
+  <div class="container">
+    <div class="row">
+      <div class="categories__slider owl-carousel">
+        <% @lastest_products.each do |product| %>
+          <div class="col-lg-3">
+            <div class="categories__item set-bg" data-setbg=<%= product.images.first.url %> >
+              <h5>
+                <%= link_to product do %>
+                  <%= product.name %>
+                <% end %>
+              </h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Categories Section End -->

@@ -1,6 +1,15 @@
 en:
   hello: "Hello world"
   brand: "Mobile Shop"
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            brand:
+              required: can't blank
+            category:
+              required: can't blank
   layouts:
     _header:
       vietnamese: Vietnamese
@@ -14,7 +23,8 @@ en:
       categories: Categories
       key_word: Enter mobile or tablet, ...
       search: Search
-      shop_now: Shop now
+    application:
+      updated_cart: "Updated cart"
   static_pages:
     home:
       hot_products: Featured Products
@@ -41,6 +51,35 @@ en:
       reviews: Reviews
       related_product: Related Product
       unknown_product: Unknown product
+  carts:
+    index:
+      carts: Carts
+      product: Product
+      price: Price
+      quantity: Quantity
+      total: Total
+      cart_total: Cart total
+      checkout: Checkout
+      continue_shopping: Continue shopping
+  orders:
+    new:
+      checkout_detail: Checkout detail
+      checkouts: Checkouts
+    form:
+      name: Name
+      address: Address
+      phone: Phone
+      email: Email
+      your_order: Your order
+      products: Products
+      total: Total
+      check_payment: Check payment
+      place_order: Place order
+      placeholder_address: Enter address
+      placeholder_phone: Enter phone number
+    create:
+      order_create_failed: Order create failed
+      order_created_success: Order create success
   users:
     create:
       succeed_signup: Signup successful
@@ -70,6 +109,8 @@ en:
         products: Products
         list_products: List products
         create_product: Create product
+        orders: Order
+        list_orders: List orders
         login_as: Logged in as
       footer:
         privacy: Privacy Policy
@@ -138,8 +179,66 @@ en:
         show: Show
         edit: Edit
         delete: Delete
+        active: Active
+        unactive: Unactive
       new:
         create_product: Create product
       edit:
         back: Back
         edit_product: Edit product
+      create:
+        product_created_success: Product created success
+        product_create_failed: Create product fail
+      update:
+        product_updated: Product updated success
+        product_update_fail: Update product fail
+    orders:
+      index:
+        list_orders: List orders
+        customer_name: Customer name
+        quantity: Quantity
+        amount: Amount
+        status: Status
+        action: Action
+        counts: "Counts: "
+      order_item:
+        pending: Pending
+        handing: Handing
+        resolved: Resolved
+        action: Action
+        show_and_edit: Show and edit
+      update:
+        order_updated: Order updated
+      show:
+        back: Back
+        order_detail: Order detail
+        list_products: Danh sách sản phẩm
+        customer_name: Customer name
+        product_name: Product name
+        address_receiver: Address receiver
+        phone_receiver: Phone receiver
+        quantity: Quantity
+        amount: Amount
+        status: Status
+        action: Action
+        pending: Pending
+        handing: Handing
+        resolved: Resolved
+        update: Update
+      edit:
+        back: Back
+        edit_order: Edit order
+      form:
+        name_receiver: Name receiver
+        address_receiver: Address receiver
+        phone_receiver: Phone receiver
+        status: Status
+        update: Update
+      form_search:
+        customer_receiver: Customer receiver
+        placeholder_customer_receiver: Enter customer receiver
+        status: Status
+        choose_status: Choose status
+        pending: Pending
+        handing: Handing
+        resolved: Resolved
