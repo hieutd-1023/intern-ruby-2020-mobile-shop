@@ -3,7 +3,7 @@ class Admins::ProductsController < AdminsController
   before_action :fetch_products, :join_products, :paginate_products,
                 only: [:index]
   before_action :fetch_categories, :fetch_brands,
-                only: %i(new create edit)
+                only: %i(new create edit update)
 
   def index
     @categories = Category.all
@@ -18,7 +18,7 @@ class Admins::ProductsController < AdminsController
   def create
     @product = Product.new product_params
     if @product.save
-      flash[:info] = t ".product_created_success"
+      flash[:success] = t ".product_created_success"
       redirect_to admins_products_path
     else
       flash[:danger] = t ".product_create_failed"
@@ -76,6 +76,7 @@ class Admins::ProductsController < AdminsController
     @products = Product.by_name(params[:keyword])
                        .by_brand(params[:brand_id])
                        .by_category(params[:category_id])
+                       .by_status(params[:status])
                        .by_from_price(params[:from_price])
                        .by_to_price(params[:to_price])
   end

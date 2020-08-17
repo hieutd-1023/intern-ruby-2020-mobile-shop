@@ -11,3 +11,14 @@ max_string: 255
 email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 admin: 1
 per_page_slider: 3
+quantity_one: 1
+user:
+  default_password: "123123"
+products:
+  filtered_by_brand: 4
+  filtered_by_samsung: 1
+  filtered_by_iphone: 1
+  filtered_by_category: 4
+  filtered_by_status: 3
+  filtered_by_from_price: 2
+  filtered_by_to_price: 2
