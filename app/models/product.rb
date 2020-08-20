@@ -15,7 +15,12 @@ class Product < ApplicationRecord
                        :description, :status,
                        images_attributes: [:id, :url, :status, :_destroy]]
                       .freeze
-  validates :name, :amount, :price, :description, presence: true
+  validates :name, :description, presence: true,
+            length: {maximum: Settings.max_string}
+  validates :amount, :price, presence: true,
+            numericality: {less_than_or_equal_to: Settings.max,
+                           only_integer: true}
+  validates :status, presence: true
 
   scope :by_brand, (lambda do |brand_ids|
     where brand_id: brand_ids if brand_ids.present?
@@ -33,11 +38,29 @@ class Product < ApplicationRecord
     where(category_id: category_id) if category_id.present?
   end)
 
+  scope :by_status, (lambda do |option|
+    where(status: option) if option.present?
+  end)
+
   scope :by_from_price, (lambda do |from_price|
     where("price >= ?", from_price) if from_price.present?
   end)
 
   scope :by_to_price, (lambda do |to_price|
     where("price <= ?", to_price) if to_price.present?
+  end)
+
+  scope :filter_by_ids, (lambda do |ids|
+    where(id: ids) if ids.present?
+  end)
+
+  default_scope{order(id: :desc)}
+
+  scope :order_by_id, (lambda do |option|
+    where(id: :option) if option.present?
+  end)
+
+  scope :order_by_price, (lambda do |option|
+    order(price: option) if option.present?
   end)
 end

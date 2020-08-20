@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
+  enum role: {user: 0, admin: 1}, _suffix: true
+
   has_secure_password
 
   def authenticated? attribute, token

@@ -20,11 +20,13 @@ gem "webpacker", "~> 4.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails", "~> 4.0.0"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
 end
 
 group :development do
+  gem "bullet"
   gem "listen", "~> 3.2"
   gem "pry-rails"
   gem "spring"
@@ -34,7 +36,13 @@ end
 
 group :test do
   gem "capybara", ">= 2.15"
+  gem "database_cleaner", "~> 1.5"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "rails-controller-testing"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 3.0", require: false
+  gem "simplecov", require: false
   gem "webdrivers"
 end
 

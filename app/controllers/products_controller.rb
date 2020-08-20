@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
 
   def show
     @related_products = Product.by_category(@product.category_id)
-                               .includes(:images)
                                .limit Settings.per_page_four
   end
 
@@ -30,11 +29,11 @@ class ProductsController < ApplicationController
   end
 
   def fetch_products
-    @products = Product.by_name params[:keyword]
-                .by_brand params[:brand]
-                .by_category params[:category_id]
-                .order_by_price params[:order]
-                .includes :images
+    @products = Product.by_name(params[:keyword])
+                       .by_brand(params[:brand])
+                       .by_category(params[:category_id])
+                       .order_by_price(params[:order])
+                       .includes(:images)
   end
 
   def paginate_products
