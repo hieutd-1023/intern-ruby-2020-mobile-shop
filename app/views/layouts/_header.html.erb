@@ -35,19 +35,19 @@
       </ul>
     </div>
     <div class="header__top__right__auth">
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <li class="dropdown li-none">
           <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
-            <%= @current_user.name %>
+            <%= current_user.name %>
             <b class="caret"></b>
           <% end %>
           <ul class="dropdown-menu">
             <li class="divider"></li>
-            <%= button_to t("layouts._header.logout"), logout_path, method: :delete, class: "bg-none border-none" %>
+            <%= link_to t("layouts._header.logout"), destroy_user_session_path, method: :delete %>
           </ul>
         </li>
       <% else %>
-        <%= link_to login_path do %>
+        <%= link_to new_user_session_path do %>
           <i class="fa fa-user"></i>
           <%= t "layouts._header.login" %>
         <% end %>
@@ -118,7 +118,7 @@
               </ul>
             </div>
             <div class="header__top__right__auth">
-              <% if logged_in? %>
+              <% if user_signed_in? %>
                 <li class="dropdown li-none">
                   <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
                     <%= current_user.name %>
@@ -126,11 +126,11 @@
                   <% end %>
                   <ul class="dropdown-menu">
                     <li class="divider"></li>
-                    <%= button_to t("layouts._header.logout"), logout_path, method: :delete, class: "bg-none border-none" %>
+                    <%= link_to t("layouts._header.logout"), destroy_user_session_path, method: :delete %>
                   </ul>
                 </li>
               <% else %>
-                <%= link_to login_path do %>
+                <%= link_to new_user_session_path do %>
                   <i class="fa fa-user"></i>
                   <%= t "layouts._header.login" %>
                 <% end %>

@@ -8,7 +8,7 @@ RSpec.describe Admins::ProductsController, type: :controller do
   let!(:params) { FactoryBot.attributes_for :product, brand_id: brand.id, category_id: category.id }
   let!(:product) { FactoryBot.create :product, brand_id: brand.id, category_id: category.id }
 
-  context "when user logged in" do
+  context "when users logged in" do
     before { log_in current_user }
 
     describe "GET #new" do

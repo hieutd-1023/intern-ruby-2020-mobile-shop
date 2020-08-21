@@ -224,6 +224,9 @@
 })(jQuery);
 
 $(document).ready(function () {
+  $("#alert-message").fadeTo(5000, 500).slideUp(500, function(){
+    $("#alert-message").slideUp(500);
+  });
   $(".update-cart .inc").click(function(){
     let product_id = $(this).parent().attr("data-product-id");
     $.ajax({

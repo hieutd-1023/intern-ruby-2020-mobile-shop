@@ -9,7 +9,7 @@ class CartsController < ApplicationController
     return unless session[:cart]
 
     @carts = Product.filter_by_ids(load_product_ids)
-                    .includes :images 
+                    .includes :images
     @total = session[:cart].map do |item|
       item["quantity"].to_i * Product.find_by(id: item["product_id"]).price
     end.sum
