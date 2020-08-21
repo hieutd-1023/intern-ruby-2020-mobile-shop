@@ -63,7 +63,6 @@ a:hover,
 a:focus {
   text-decoration: none;
   outline: none;
-  color: #ffffff;
 }
 
 ul,
@@ -3595,4 +3594,33 @@ input, textarea, select, .uneditable-input {
   position: absolute;
   top: 2rem;
   right: 1rem;
+}
+
+/*flash for devise*/
+.alert-error {
+  background-color: $alert-error-background-color;
+  border-color: $alert-error-border-color;
+  color: $alert-error-color;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: $alert-alert-background-color;
+  border-color: $alert-alert-border-color;
+  color: $alert-alert-color;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: $alert-success-background-color;
+  border-color: $alert-success-border-color;
+  color: $alert-success-color;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: $alert-notice-background-color;
+  border-color: $alert-notice-border-color;
+  color: $alert-notice-color;
+  text-align: left;
 }
