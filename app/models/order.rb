@@ -7,7 +7,7 @@ class Order < ApplicationRecord
                              .freeze
   PERMIT_UPDATE_ATTRIBUTES = [:status].freeze
 
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :order_items, dependent: :destroy
 
   accepts_nested_attributes_for :order_items, allow_destroy: true

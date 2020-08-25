@@ -50,6 +50,14 @@ class Admins::ProductsController < AdminsController
     end
   end
 
+  def get_products_active
+    @products = Product.active_status
+                       .filter_by_ids(params[:ids])
+    render json: {
+      products: @products
+    }
+  end
+
   private
 
   def find_product
@@ -82,8 +90,7 @@ class Admins::ProductsController < AdminsController
   end
 
   def join_products
-    @products = @products.includes(:images)
-                         .includes(:brand)
+    @products = @products.includes(:brand)
                          .includes(:category)
   end
 

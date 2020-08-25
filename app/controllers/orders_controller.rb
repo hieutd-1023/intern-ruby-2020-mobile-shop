@@ -1,6 +1,4 @@
 class OrdersController < ApplicationController
-  include SessionsHelper
-
   before_action :get_cart, only: %i(new create)
 
   def index; end

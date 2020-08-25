@@ -1,6 +1,5 @@
 class CartsController < ApplicationController
   include CartsHelper
-  include SessionsHelper
 
   before_action :declare, :check_exist, :create_sessions_cart,
                 :update_sessions_cart, only: :create

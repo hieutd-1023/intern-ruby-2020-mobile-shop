@@ -112,6 +112,7 @@ vi:
         create_product: Tạo mới sản phẩm
         orders: Đơn hàng
         list_orders: Danh sách đơn hàng
+        create_order: Tạo mới đơn hàng
         login_as: Đăng nhập với
       footer:
         privacy: Chính sách riêng tư
@@ -203,6 +204,21 @@ vi:
         status: Trạng thái
         action: Thao tác
         counts: "Tổng: "
+      new:
+        create_order: Tạo mới đơn hàng
+      form_create:
+        name_receiver: Người nhận
+        placeholder_name_receiver: Nhập tên người nhận
+        address_receiver: Địa chỉ người nhận
+        placeholder_address_receiver: Nhập địa chỉ người nhận
+        phone_receiver: SĐT người nhận
+        placeholder_phone_receiver: Nhập SĐT người nhận
+        status: Trạng thái
+        list_product: Danh sách sản phẩm
+        product_name: Tên sản phẩm
+        quantity: Số lượng
+        total_amount: Thành tiền
+        save: Tạo mới
       order_item:
         pending: Đang chờ
         handing: Chờ xử lý
@@ -237,8 +253,8 @@ vi:
         status: Trạng thái
         update: Cập nhật
       form_search:
-        customer_receiver: Người nhận
-        placeholder_customer_receiver: Nhập tên người nhận
+        name_receiver: Người nhận
+        placeholder_name_receiver: Nhập tên người nhận
         status: Trạng thái
         choose_status: Chọn trạng thái
         pending: Đang chờ

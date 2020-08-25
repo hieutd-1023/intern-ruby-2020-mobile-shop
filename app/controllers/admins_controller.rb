@@ -1,9 +1,10 @@
 class AdminsController < ApplicationController
-  before_action :check_admin
+  load_and_authorize_resource
+  check_authorization
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
+  end
 
   layout "admins"
-
-  def check_admin
-    redirect_to root_path unless current_user&.admin_role?
-  end
 end
