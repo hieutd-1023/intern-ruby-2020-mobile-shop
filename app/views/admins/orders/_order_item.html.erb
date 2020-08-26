@@ -1,0 +1,16 @@
+<tr>
+  <td><%= order.name_receiver %></td>
+  <td><%= order.total_quantity %></td>
+  <td><%= order.total_amount %></td>
+  <td><%= t ".#{order.status}" %></td>
+  <td>
+    <div class="btn-group dropbottom">
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t ".action" %>
+      </button>
+      <div class="dropdown-menu">
+        <%= link_to t(".edit"), edit_admins_order_path(order.id), class: "dropdown-item" %>
+      </div>
+    </div>
+  </td>
+</tr>

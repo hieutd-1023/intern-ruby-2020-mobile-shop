@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     namespace :admins do
+      post "/products/get_products_active", to: "products#get_products_active"
       root to: "products#index"
       resources :products
       resources :orders

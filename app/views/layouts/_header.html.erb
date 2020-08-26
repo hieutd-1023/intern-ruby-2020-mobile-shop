@@ -44,6 +44,12 @@
           <ul class="dropdown-menu">
             <li class="divider"></li>
             <%= link_to t("layouts._header.logout"), destroy_user_session_path, method: :delete %>
+            <li class="divider"></li>
+            <%= link_to t("layouts._header.edit_account"), edit_user_registration_path %>
+            <% if current_user.admin_role?  %>
+              <li class="divider"></li>
+              <%= link_to t("layouts._header.enter_admin"), admins_root_path %>
+            <% end %>
           </ul>
         </li>
       <% else %>
@@ -127,6 +133,12 @@
                   <ul class="dropdown-menu">
                     <li class="divider"></li>
                     <%= link_to t("layouts._header.logout"), destroy_user_session_path, method: :delete %>
+                    <li class="divider"></li>
+                    <%= link_to t("layouts._header.edit_account"), edit_user_registration_path %>
+                    <% if current_user.admin_role?  %>
+                      <li class="divider"></li>
+                      <%= link_to t("layouts._header.enter_admin"), admins_root_path %>
+                    <% end %>
                   </ul>
                 </li>
               <% else %>

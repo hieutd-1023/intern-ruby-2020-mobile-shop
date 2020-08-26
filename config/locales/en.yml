@@ -111,6 +111,7 @@ en:
         create_product: Create product
         orders: Order
         list_orders: List orders
+        create_order: Create order
         login_as: Logged in as
       footer:
         privacy: Privacy Policy
@@ -201,6 +202,21 @@ en:
         status: Status
         action: Action
         counts: "Counts: "
+      new:
+        create_order: Create order
+      form_create:
+        name_receiver: Name receiver
+        placeholder_name_receiver: Enter name receiver
+        address_receiver: Address receiver
+        placeholder_address_receiver: Enter address receiver
+        phone_receiver: Phone receiver
+        placeholder_phone_receiver: Enter phone receiver
+        status: Status
+        list_product: List product
+        product_name: Product name
+        quantity: Quantity
+        total_amount: Total amount
+        save: Save
       order_item:
         pending: Pending
         handing: Handing
@@ -235,8 +251,8 @@ en:
         status: Status
         update: Update
       form_search:
-        customer_receiver: Customer receiver
-        placeholder_customer_receiver: Enter customer receiver
+        name_receiver: Customer receiver
+        placeholder_name_receiver: Enter customer receiver
         status: Status
         choose_status: Choose status
         pending: Pending

@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
   def load_categories
     @categories = Category.active_status
   end
+
+  def check_logged_in_user
+    return if user_signed_in?
+
+    store_location
+    flash[:error] = t "global.please_login"
+    redirect_to login_url
+  end
 end

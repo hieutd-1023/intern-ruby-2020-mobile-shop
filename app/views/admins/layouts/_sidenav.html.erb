@@ -26,6 +26,9 @@
           <nav class="sb-sidenav-menu-nested nav">
             <%= link_to t(".list_orders"), admins_orders_path, class: "nav-link #{active_treeview_menu "orders", "active"}" %>
           </nav>
+          <nav class="sb-sidenav-menu-nested nav">
+            <%= link_to t(".create_order"), new_admins_order_path, class: "nav-link #{active_treeview_menu "new", "active"}" %>
+          </nav>
         </div>
       </div>
     </div>

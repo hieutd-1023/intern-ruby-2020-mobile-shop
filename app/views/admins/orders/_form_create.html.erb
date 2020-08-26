@@ -1,0 +1,54 @@
+<main>
+  <div class="container-fluid">
+    <%= form_for [:admins, @order] do |f| %>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row">
+            <dt class="col-sm-4"><%= t ".name_receiver" %></dt>
+            <dd class="col-sm-8">
+              <%= f.text_field :name_receiver, class: "form-control", placeholder: t(".placeholder_name_receiver") %>
+            </dd>
+            <dt class="col-sm-4"><%= t ".address_receiver" %></dt>
+            <dd class="col-sm-8">
+              <%= f.text_field :address_receiver, class: "form-control", placeholder: t(".placeholder_address_receiver") %>
+            </dd>
+            <dt class="col-sm-4"><%= t ".phone_receiver" %></dt>
+            <dd class="col-sm-8">
+              <%= f.text_field :phone_receiver, class: "form-control", placeholder: t(".placeholder_phone_receiver") %>
+            </dd>
+            <dt class="col-sm-4"><%= t ".status" %></dt>
+            <dd class="col-sm-8">
+              <div class="form-group">
+                <%= f.select :status, options_for_select(option_status_order_update, @order.status), {}, {class: "form-control"} %>
+              </div>
+            </dd>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <select class="js-example-basic-multiple" id="select-product" name="states[]" multiple="multiple">
+                <% @products.each do |product| %>
+                  <option value="<%= product.id %>"><%= product.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <h3><%= t ".list_product" %></h3>
+          <div class="row">
+            <dt class="col-sm-4"><%= t ".product_name" %></dt>
+            <dd class="col-sm-4"><%= t ".quantity" %></dd>
+            <dd class="col-sm-4"><%= t ".total_amount" %></dd>
+          </div>
+          <div class="row" id="list-product">
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-success float-right"><%= t ".save" %></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>
