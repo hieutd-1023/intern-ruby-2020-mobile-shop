@@ -81,6 +81,18 @@ vi:
     create:
       order_create_failed: Đơn hàng tạo thất bại
       order_created_success: Đơn hàng tạo thành công
+    index:
+      order_history: Lịch sử đơn hàng
+    item:
+      order: Đơn hàng
+      total_amount: Thành tiền
+      quantity: Số lượng
+      pending: Đang chờ
+      handing: Đang xử lý
+      resolved: Đã hoàn thành
+      created_at: "Ngày tạo: "
+      remove: Hủy
+      you_sure?: Bạn có chắc chắn xóa?
   users:
     create:
       succeed_signup: Đăng ký thành công

@@ -1880,7 +1880,7 @@ ol {
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item {
-  width: 630px;
+  width: 450px;
   text-align: left;
 }
 
@@ -3623,4 +3623,24 @@ input, textarea, select, .uneditable-input {
   border-color: $alert-notice-border-color;
   color: $alert-notice-color;
   text-align: left;
+}
+
+.border-order {
+  border: 1px solid $gray-light-color
+}
+
+.w-10 {
+  width: 10%;
+}
+
+.p-1r {
+  padding: 1rem;
+}
+
+.opacity-5 {
+  opacity: 0.5!important;
+}
+
+.fs-14 {
+  font-size: 14px;
 }

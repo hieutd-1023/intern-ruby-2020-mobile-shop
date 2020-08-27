@@ -1,7 +1,7 @@
 <% if session[:cart] %>
   <tr id="row-product-id-<%= item.id %>">
     <td class="shoping__cart__item">
-      <%= image_tag item.images.first.url, class:"w-50" %>
+      <%= image_tag item.images.first.url, class:"w-25" %>
       <h5><%= item.name %></h5>
     </td>
     <td class="shoping__cart__price">

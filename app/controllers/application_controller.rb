@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
 
     store_location
     flash[:error] = t "global.please_login"
-    redirect_to login_url
+    redirect_to new_user_session_path
   end
 end
