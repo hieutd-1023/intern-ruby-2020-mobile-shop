@@ -1,0 +1,9 @@
+<%= provide :title, t(".order_history") %>
+<%= render "header" %>
+<%= render "banner" %>
+<section class="shoping-cart spad">
+  <div class="container">
+    <%= render partial: "orders/item", collection: @orders, as: :order %>
+    <%= paginate @orders, theme: "twitter-bootstrap-4" %>
+  </div>
+</section>

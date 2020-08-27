@@ -80,6 +80,18 @@ en:
     create:
       order_create_failed: Order create failed
       order_created_success: Order create success
+    index:
+      order_history: Order history
+    item:
+      order: Order
+      total_amount: Total amount
+      quantity: Quantity
+      pending: Pending
+      handing: Handing
+      resolved: Resolved
+      created_at: "Created at: "
+      remove: Remove
+      you_sure?: You are sure?
   users:
     create:
       succeed_signup: Signup successful

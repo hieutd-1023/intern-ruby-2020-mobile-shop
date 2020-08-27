@@ -1,0 +1,13 @@
+<tr id="row-product-id-<%= order_item.id %>">
+  <td class="shoping__cart__item">
+    <%= image_tag order_item.product.images.first.url, class: "w-10" %>
+    <h5><%= order_item.product.name %></h5>
+  </td>
+  <td class="shoping__cart__price">
+    <%= order_item.amount %>
+  </td>
+  <td class="shoping__cart__quantity">
+    <%= order_item.quantity %>
+  </td>
+  <td></td>
+</tr>

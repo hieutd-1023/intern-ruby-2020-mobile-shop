@@ -14,6 +14,8 @@ class Order < ApplicationRecord
 
   enum status: {pending: 3, handing: 2, resolved: 1}, _suffix: true
 
+  after_save :update_code, :update_created_at
+
   validates :name_receiver, :address_receiver, :phone_receiver, :status,
             presence: true
   validates :status, inclusion: {in: %w(pending handing resolved)}
@@ -30,11 +32,23 @@ class Order < ApplicationRecord
     where(status: option) if option.present?
   end)
 
+  scope :by_user, (lambda do |user_id|
+    where(user_id: user_id) if user_id.present?
+  end)
+
   def total_quantity
     order_items.to_a.sum(&:quantity)
   end
 
   def total_amount
     order_items.to_a.sum(&:amount)
+  end
+
+  def update_code
+    update code: (Time.now.to_i * Settings.config_timestamp).to_s
+  end
+
+  def update_created_at
+    update created_at: Time.zone.now
   end
 end

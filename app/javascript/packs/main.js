@@ -8,7 +8,7 @@
 ---------------------------------------------------------  */
 
 'use strict';
-
+var csrf_token = $('meta[name="csrf-token"]').attr('content');
 (function ($) {
 
   /*------------------
@@ -232,6 +232,9 @@ $(document).ready(function () {
     $.ajax({
       url: 'carts',
       type: 'POST',
+      headers: {
+        'X-CSRF-Token': csrf_token,
+      },
       data: 'product_id=' + product_id + '&option=inc',
       success: function (data) {
         console.log(data);
@@ -247,10 +250,12 @@ $(document).ready(function () {
   $(".add-cart").click(function(){
     console.log("aaaa");
     let product_id = $(this).attr("data-product-id");
-    console.log(product_id);
     $.ajax({
       url: '/carts',
       type: 'POST',
+      headers: {
+        'X-CSRF-Token': csrf_token,
+      },
       data: 'product_id=' + product_id + '&option=inc',
       success: function (data) {
         $('.length-cart').html(data.sessions_length);
@@ -270,6 +275,9 @@ $(document).ready(function () {
     $.ajax({
       url: 'carts',
       type: 'POST',
+      headers: {
+        'X-CSRF-Token': csrf_token,
+      },
       data: 'product_id=' + product_id + '&option=dec',
       success: function (data) {
         console.log(data)
@@ -292,6 +300,9 @@ $(document).ready(function () {
     $.ajax({
       url: 'carts',
       type: 'POST',
+      headers: {
+        'X-CSRF-Token': csrf_token,
+      },
       data: 'product_id=' + product_id + '&option=del',
       success: function (data) {
         console.log(data.sessions_length)
